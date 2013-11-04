@@ -57,8 +57,9 @@
 			}
         
 		$this.click(function() {
+			var $this = $(this),
 			var action = parseURL($this.attr(settings['fwd-attr'])),
-			    form = $(this).parents('form');
+			    form = $this.parents('form');
 			
 			form.get(0).setAttribute('action', action);
 		});
