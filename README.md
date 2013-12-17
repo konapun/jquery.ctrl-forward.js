@@ -27,6 +27,8 @@ Now, when the form's `submit` button is clicked, the form's action will automati
 `/search/dual/first/second`, or whatever the value of `textbox1` and `textbox2` are at the time the
 submit button is clicked.
 
+A form is not required when using method "link".
+
 ### Advanced usage
 Any text within the [ and ] tags in the data-forward attribute are executed within the context of jQuery.
 To further scope this selection, the modifiers `^` and `>` are available which stand for the jQuery methods

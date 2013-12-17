@@ -77,8 +77,10 @@
 			
 			if (method == 'link') {
 				window.location = action;
-				form.onsubmit = function() { return false; }; // cancel form action
-				form.action = "";
+				if (typeof form !== 'undefined') {
+					form.onsubmit = function() { return false; }; // cancel form action
+					form.action = "";
+				}
 			}
 			else {
 				if (method == 'get' || method == 'post') {
