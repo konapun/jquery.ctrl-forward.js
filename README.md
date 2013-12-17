@@ -18,7 +18,8 @@ fly based on some other tags within the form. Enter the jQuery forward controlle
 
 ```js
 $('.ctrl-forward').ctrlForward({
-	'fwd-attr': 'data-forward' // This is the default attribute
+	'fwd-attr': 'data-forward', // This is the default attribute
+	'method': 'link' // "get", "post", "link", or undefined [default]. When undefined, the action defined in the form is taken.
 });
 ```
 
@@ -30,3 +31,10 @@ submit button is clicked.
 Any text within the [ and ] tags in the data-forward attribute are executed within the context of jQuery.
 To further scope this selection, the modifiers `^` and `>` are available which stand for the jQuery methods
 `parents` and `siblings`, respectively which must be the first character within the [] tags.
+
+## Options
+**fwd-attr**: Specify the attribute the action will be defined in (default: `data-forward`)
+  
+**method**: [`get`|`post`|`link`|`undefined`] Specify the method used to submit the form. If undefined (default),
+the method defined in the form will be used. If the type is `link`, the action will be submitted as a link and
+the form's action will be cancelled.
