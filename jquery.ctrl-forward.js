@@ -81,11 +81,8 @@
 				form.action = "";
 			}
 			else {
-				if (method == 'get') {
-					form.method = 'get';
-				}
-				else if (method == 'post') {
-					form.method = 'post';
+				if (method == 'get' || method == 'post') {
+					form.method = method;
 				}
 				
 				form.setAttribute('action', action);
