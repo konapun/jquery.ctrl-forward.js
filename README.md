@@ -27,7 +27,8 @@ Now, when the form's `submit` button is clicked, the form's action will automati
 `/search/dual/first/second`, or whatever the value of `textbox1` and `textbox2` are at the time the
 submit button is clicked.
 
-A form is not required when using method "link".
+A form is not required when using method "link". You can choose the method to use by setting `data-method`
+to `get`, `post`, or `link` in the tag that specifies the `data-forward` attribute.
 
 ### Advanced usage
 Any text within the [ and ] tags in the data-forward attribute are executed within the context of jQuery.
@@ -40,3 +41,6 @@ To further scope this selection, the modifiers `^` and `>` are available which s
 **method**: [`get`|`post`|`link`|`undefined`] Specify the method used to submit the form. If undefined (default),
 the method defined in the form will be used. If the type is `link`, the action will be submitted as a link and
 the form's action will be cancelled.
+
+**override**: Allow `method` setting in ctrlForward invocation to override any methods set using the attribute
+`data-method` (default: `false`)

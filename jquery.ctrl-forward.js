@@ -14,7 +14,8 @@
     	var $this = $(this),
     	    settings = $.extend({
     	    	'fwd-attr': 'data-forward',
-    	    	'method': undefined // "get", "post", or "link". undefined: use method defined in form
+    	    	'method': undefined, // "get", "post", or "link". undefined: use method defined in form
+    	    	'override': false // Javascript-defined "method" setting overrides `data-method` setting
     	    }, opts),
 	    
 		/*
@@ -93,8 +94,10 @@
 		
 		$this.click(function() {
 			var $this = $(this),
-			    action = parseURL($this.attr(settings['fwd-attr']));
+			    action = parseURL($this.attr(settings['fwd-attr'])),
+			    method = $this.attr('data-method');
 			
+			if (!settings.method || (!settings.override && typeof method !== 'undefined')) settings.method = method; // use method defined in attribute, if available and allowed
 			performMethod($this, settings.method, action);
 		});
 	}
